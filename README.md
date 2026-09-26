@@ -28,7 +28,6 @@ Para un despliegue con Docker:
 ```bash
 cd /app/extra-addons
 unzip -o l10n_ar_afipws_wsct.zip
-chown -R systemd-network:systemd-journal /app/extra-addons/l10n_ar_afipws_wsct
 docker restart odoo_app
 ```
 
