@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Disable the short-lived report inheritance from version 1.0.16.
+         The WSCT VAT/reimbursement must be represented by native invoice
+         taxes, not by a cosmetic report override. -->
+    <record id="report_invoice_document_wsct" model="ir.ui.view">
+        <field name="name">account.report.invoice.wsct.disabled</field>
+        <field name="type">qweb</field>
+        <field name="inherit_id" eval="False"/>
+        <field name="active" eval="False"/>
+        <field name="arch" type="xml">
+            <t t-name="l10n_ar_afipws_wsct.report_invoice_document_wsct_disabled"/>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="document_type_invoice_t" model="l10n_latam.document.type">
+        <field name="sequence">1950</field>
+        <field name="code">195</field>
+        <field name="name">Factura T</field>
+        <field name="l10n_ar_letter">T</field>
+        <field name="report_name">FACTURA T</field>
+        <field name="internal_type">invoice</field>
+        <field name="doc_code_prefix">FA-T</field>
+        <field name="country_id" ref="base.ar"/>
+        <field name="purchase_aliquots">not_zero</field>
+    </record>
+    <record id="document_type_debit_t" model="l10n_latam.document.type">
+        <field name="sequence">1960</field>
+        <field name="code">196</field>
+        <field name="name">Nota de Débito T</field>
+        <field name="l10n_ar_letter">T</field>
+        <field name="report_name">NOTA DE DÉBITO T</field>
+        <field name="internal_type">debit_note</field>
+        <field name="doc_code_prefix">ND-T</field>
+        <field name="country_id" ref="base.ar"/>
+        <field name="purchase_aliquots">not_zero</field>
+    </record>
+    <record id="document_type_credit_t" model="l10n_latam.document.type">
+        <field name="sequence">1970</field>
+        <field name="code">197</field>
+        <field name="name">Nota de Crédito T</field>
+        <field name="l10n_ar_letter">T</field>
+        <field name="report_name">NOTA DE CRÉDITO T</field>
+        <field name="internal_type">credit_note</field>
+        <field name="doc_code_prefix">NC-T</field>
+        <field name="country_id" ref="base.ar"/>
+        <field name="purchase_aliquots">not_zero</field>
+    </record>
+</odoo>

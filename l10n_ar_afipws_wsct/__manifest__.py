@@ -1,0 +1,21 @@
+{
+    "name": "Argentina - AFIP WSCT Factura T",
+    "version": "17.0.1.0.18",
+    "category": "Localization/Argentina",
+    "summary": "Factura T / Web Service de Comprobantes de Turismo (WSCT)",
+    "author": "Custom",
+    "license": "AGPL-3",
+    "depends": ["l10n_ar_afipws_fe"],
+    "external_dependencies": {"python": ["pyafipws"]},
+    "data": [
+        "data/l10n_latam_document_type.xml",
+        "security/ir.model.access.csv",
+        "views/account_journal_views.xml",
+        "views/account_move_views.xml",
+        "views/product_template_views.xml",
+        "views/report_invoice_wsct_cleanup.xml",
+    ],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}

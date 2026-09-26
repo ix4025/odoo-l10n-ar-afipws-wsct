@@ -1,0 +1,56 @@
+# Argentina - ARCA WSCT Factura T para Odoo 17 CE
+
+Módulo para Odoo 17 Community Edition que incorpora la emisión de Factura T,
+Nota de Débito T y Nota de Crédito T mediante el Web Service de Comprobantes
+de Turismo (WSCT) de ARCA.
+
+## Contenido
+
+* `l10n_ar_afipws_wsct/`: código fuente instalable del módulo.
+* `docs/Instructivo_instalacion_Factura_T_WSCT.docx`: instalación y
+  configuración técnica.
+
+## Requisitos
+
+* Odoo 17 Community Edition.
+* Módulo `l10n_ar_afipws_fe` instalado.
+* Biblioteca Python `pyafipws`.
+* Certificado ARCA con el servicio `wsct` autorizado.
+* Punto de venta habilitado para WSCT.
+
+## Instalación rápida
+
+Copiar la carpeta `l10n_ar_afipws_wsct` dentro de una ruta de addons,
+actualizar la lista de Aplicaciones e instalar o actualizar el módulo.
+
+Para un despliegue con Docker:
+
+```bash
+cd /app/extra-addons
+unzip -o l10n_ar_afipws_wsct.zip
+chown -R systemd-network:systemd-journal /app/extra-addons/l10n_ar_afipws_wsct
+docker restart odoo_app
+```
+
+Luego se debe seguir el instructivo en `docs/` y realizar pruebas en
+homologación antes de emitir en producción.
+
+## Configuración fiscal de Factura T
+
+La factura usa dos impuestos nativos de Odoo sobre la línea:
+
+* IVA ventas 21 %.
+* Reintegro IVA -21 %.
+
+El IVA se informa y se visualiza en el comprobante, mientras que el reintegro
+lo compensa para que el importe total sea el neto cobrado al turista.
+
+## Seguridad
+
+No incluir en este repositorio certificados, claves privadas, tokens, bases de
+datos, copias de seguridad, archivos `.env`, logs ni datos reales de pasajeros.
+
+## Licencia
+
+Este proyecto se distribuye bajo la licencia GNU Affero General Public License
+v3.0 o posterior (AGPL-3.0-or-later). Consulte el archivo `LICENSE`.

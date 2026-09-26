@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        WSCT reports the gross service amount, its 21% VAT and the exact VAT
+        reimbursement.  Accounting stays net: the total due is still the
+        Odoo invoice total.
+    -->
+    <template id="report_invoice_document_wsct" inherit_id="account.report_invoice_document">
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+            <th name="th_taxes" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                <span t-if="o.wsct_is_document">VAT rate</span>
+                <span t-else="">Taxes</span>
+            </th>
+            <th t-if="o.wsct_is_document" name="th_wsct_vat" class="text-end">
+                <span>VAT amount</span>
+            </th>
+        </xpath>
+        <xpath expr="//td[@name='td_taxes']" position="replace">
+            <td name="td_taxes" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }} {{ 'text-nowrap' if len(taxes) &lt; 10 else '' }}">
+                <span t-if="o.wsct_is_document">21%</span>
+                <span t-else="" t-out="taxes" id="line_tax_ids">Tax 15%</span>
+            </td>
+            <td t-if="o.wsct_is_document" name="td_wsct_vat" class="text-end">
+                <span t-out="line.price_subtotal * 0.21" t-options='{"widget": "monetary", "display_currency": o.currency_id}'>0.00</span>
+            </td>
+        </xpath>
+        <xpath expr="//td[@name='td_subtotal']" position="replace">
+            <td name="td_subtotal" class="text-end o_price_total">
+                <span t-if="o.wsct_is_document" class="text-nowrap" t-out="line.price_subtotal * 1.21" t-options='{"widget": "monetary", "display_currency": o.currency_id}'>0.00</span>
+                <span t-else="" class="text-nowrap" t-field="line.price_subtotal">27.00</span>
+            </td>
+        </xpath>
+        <xpath expr="//t[@t-call='account.document_tax_totals']" position="replace">
+            <t t-if="o.wsct_is_document" t-call="l10n_ar_afipws_wsct.report_wsct_tax_totals"/>
+            <t t-else="" t-call="account.document_tax_totals"/>
+        </xpath>
+    </template>
+
+    <template id="report_wsct_tax_totals">
+        <tr class="border-black o_subtotal">
+            <td><strong>Taxable net amount</strong></td>
+            <td class="text-end">
+                <span t-field="o.wsct_net_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'>0.00</span>
+            </td>
+        </tr>
+        <tr>
+            <td>VAT 21%</td>
+            <td class="text-end">
+                <span t-field="o.wsct_informative_vat_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'>0.00</span>
+            </td>
+        </tr>
+        <tr>
+            <td>VAT reimbursement</td>
+            <td class="text-end">
+                <span t-field="o.wsct_reimbursement_amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'>0.00</span>
+            </td>
+        </tr>
+        <tr class="border-black o_total">
+            <td><strong>Total to collect</strong></td>
+            <td class="text-end">
+                <span t-field="o.amount_total">0.00</span>
+            </td>
+        </tr>
+    </template>
+</odoo>

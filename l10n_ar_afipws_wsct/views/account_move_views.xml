@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_wsct" model="ir.ui.view">
+        <field name="name">account.move.form.wsct</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="l10n_ar_afipws_fe.view_move_form"/>
+        <field name="arch" type="xml">
+            <page name="afip" position="inside">
+                <field name="wsct_is_document" invisible="1"/>
+                <group string="WSCT / Factura T" invisible="not wsct_is_document" col="2">
+                    <group string="Payment">
+                        <field name="wsct_payment_catalog_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="wsct_card_type_catalog_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="wsct_card_first_six"/>
+                        <button name="wsct_refresh_card_types" type="object" string="Update card types" class="btn-secondary" invisible="not wsct_payment_catalog_id"/>
+                        <field name="wsct_same_foreign_currency"/>
+                    </group>
+                    <group string="Receiver">
+                        <field name="wsct_fiscal_condition_catalog_id" options="{'no_create': True, 'no_open': True}" required="wsct_is_document"/>
+                        <field name="wsct_relation_code"/>
+                        <field name="wsct_receiver_country_code"/>
+                        <field name="wsct_receiver_address"/>
+                    </group>
+                    <group string="Observations" col="1" colspan="2">
+                        <field name="wsct_observations" nolabel="1" placeholder="Optional commercial observations"/>
+                    </group>
+                    <button name="wsct_apply_native_taxes" type="object" string="Apply VAT 21% and reimbursement" class="btn-secondary"/>
+                    <field name="wsct_payment_code" invisible="1"/>
+                    <field name="wsct_receiver_tax_id" invisible="1"/>
+                </group>
+            </page>
+        </field>
+    </record>
+</odoo>

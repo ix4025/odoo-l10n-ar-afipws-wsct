@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_journal_form_wsct" model="ir.ui.view">
+        <field name="name">account.journal.form.wsct</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="l10n_ar_afipws_fe.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+                <header>
+                    <button name="get_pyafipws_cuit_document_classes" string="WSCT document types" type="object" invisible="afip_ws != 'wsct'"/>
+                    <button name="wsct_refresh_catalogs" string="Update WSCT catalogs" type="object" invisible="afip_ws != 'wsct'"/>
+                </header>
+            </sheet>
+            <field name="l10n_ar_afip_pos_system" position="after">
+                <field name="wsct_vat_tax_id" invisible="afip_ws != 'wsct'" options="{'no_create': True}"/>
+                <field name="wsct_reimbursement_tax_id" invisible="afip_ws != 'wsct'" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

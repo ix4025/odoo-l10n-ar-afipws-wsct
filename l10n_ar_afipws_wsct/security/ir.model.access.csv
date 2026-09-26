@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wsct_catalog_account_user,wsct.catalog account user,model_wsct_catalog,account.group_account_user,1,0,0,0
+access_wsct_catalog_account_manager,wsct.catalog account manager,model_wsct_catalog,account.group_account_manager,1,1,1,1

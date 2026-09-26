@@ -1,0 +1,27 @@
+# Python and Odoo generated files
+__pycache__/
+*.py[cod]
+*.so
+
+# Environment and secret material
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Backups, logs and local archives
+*.bak
+*.log
+*.dump
+*.sql
+*.zip
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
