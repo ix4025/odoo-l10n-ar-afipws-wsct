@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2026 Alfredo Sanz; SPDX-License-Identifier: AGPL-3.0-or-later -->
 <odoo noupdate="1">
     <record id="document_type_invoice_t" model="l10n_latam.document.type">
         <field name="sequence">1950</field>

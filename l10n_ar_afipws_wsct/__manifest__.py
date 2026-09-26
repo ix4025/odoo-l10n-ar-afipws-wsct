@@ -3,7 +3,7 @@
     "version": "17.0.1.0.18",
     "category": "Localization/Argentina",
     "summary": "Factura T / Web Service de Comprobantes de Turismo (WSCT)",
-    "author": "Custom",
+    "author": "Alfredo Sanz",
     "license": "AGPL-3",
     "depends": ["l10n_ar_afipws_fe"],
     "external_dependencies": {"python": ["pyafipws"]},

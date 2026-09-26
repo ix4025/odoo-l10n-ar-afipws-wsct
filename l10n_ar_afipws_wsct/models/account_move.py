@@ -1,3 +1,6 @@
+# Copyright 2026 Alfredo Sanz
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_EVEN
 

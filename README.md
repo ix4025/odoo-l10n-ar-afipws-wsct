@@ -49,7 +49,12 @@ lo compensa para que el importe total sea el neto cobrado al turista.
 No incluir en este repositorio certificados, claves privadas, tokens, bases de
 datos, copias de seguridad, archivos `.env`, logs ni datos reales de pasajeros.
 
-## Licencia
+## Autoría y licencias
 
-Este proyecto se distribuye bajo la licencia GNU Affero General Public License
+Copyright (C) 2026 Alfredo Sanz. Consulte también el archivo `NOTICE`.
+
+El código se distribuye bajo la licencia GNU Affero General Public License
 v3.0 o posterior (AGPL-3.0-or-later). Consulte el archivo `LICENSE`.
+
+La documentación dentro de `docs/` se distribuye bajo la licencia
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es).
