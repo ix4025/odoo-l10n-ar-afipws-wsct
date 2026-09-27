@@ -41,6 +41,13 @@ La factura usa dos impuestos nativos de Odoo sobre la línea:
 * IVA ventas 21 %.
 * Reintegro IVA -21 %.
 
+Además de crear ambos impuestos, se debe crear un grupo de impuestos exclusivo
+para el reintegro, llamado **Reintegro de IVA 21 %**, y asignarlo al impuesto
+**Reintegro IVA -21 %**. El impuesto positivo debe permanecer en el grupo
+**IVA 21 %**. No deben compartir el mismo grupo: Odoo agrupa sus importes en el
+resumen de la factura y, si ambos están en el grupo de IVA, el resultado puede
+mostrarse como $ 0,00 en lugar de exhibir el IVA y su reintegro por separado.
+
 El IVA se informa y se visualiza en el comprobante, mientras que el reintegro
 lo compensa para que el importe total sea el neto cobrado al turista.
 
